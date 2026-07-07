@@ -83,8 +83,7 @@ export function WordSearch() {
         })}
       </div>
       <p className="mt-4 font-serif text-sm italic text-ash">
-        Find the hidden words.{" "}
-        <span className="text-pen">Two are already circled.</span>
+        Click the circled words!{" "}
       </p>
     </div>
   );

@@ -116,7 +116,7 @@ function PhotographyPage() {
         </div>
 
         <p className="mt-6 text-center font-serif italic text-ash">
-          Rain. Sunlight. Buildings. Flowers. Balloons.
+          Sunlight. Buildings. People. Flowers. Life.
         </p>
       </main>
       <Footer />

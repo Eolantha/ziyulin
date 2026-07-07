@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProseRouteImport } from './routes/prose'
 import { Route as PoetryRouteImport } from './routes/poetry'
+import { Route as PhotographyRouteImport } from './routes/photography'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ProseRoute = ProseRouteImport.update({
@@ -23,6 +24,11 @@ const PoetryRoute = PoetryRouteImport.update({
   path: '/poetry',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhotographyRoute = PhotographyRouteImport.update({
+  id: '/photography',
+  path: '/photography',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/photography': typeof PhotographyRoute
   '/poetry': typeof PoetryRoute
   '/prose': typeof ProseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/photography': typeof PhotographyRoute
   '/poetry': typeof PoetryRoute
   '/prose': typeof ProseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/photography': typeof PhotographyRoute
   '/poetry': typeof PoetryRoute
   '/prose': typeof ProseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/poetry' | '/prose'
+  fullPaths: '/' | '/photography' | '/poetry' | '/prose'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/poetry' | '/prose'
-  id: '__root__' | '/' | '/poetry' | '/prose'
+  to: '/' | '/photography' | '/poetry' | '/prose'
+  id: '__root__' | '/' | '/photography' | '/poetry' | '/prose'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PhotographyRoute: typeof PhotographyRoute
   PoetryRoute: typeof PoetryRoute
   ProseRoute: typeof ProseRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PoetryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/photography': {
+      id: '/photography'
+      path: '/photography'
+      fullPath: '/photography'
+      preLoaderRoute: typeof PhotographyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PhotographyRoute: PhotographyRoute,
   PoetryRoute: PoetryRoute,
   ProseRoute: ProseRoute,
 }

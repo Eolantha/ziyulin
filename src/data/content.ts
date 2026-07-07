@@ -33,7 +33,7 @@ export const masthead = {
   name: "ZIYU LIN",
   tagline: "Paper Portfolio",
   issue: "VOL. 001",
-  location: "Singapore",
+  location: " ",
   date: "7 July 2026",
   edition: "Issue No. 001",
 };
@@ -41,8 +41,8 @@ export const masthead = {
 export const editorial = {
   heading: "A Letter from the Editor",
   paragraphs: [
-    "We all love something. I, for one, love many things - let this place not just be a portfolio, but a letter to the way I show my love to the world.",
-    "I implore you to read slowly, deliberately, carefully. After all, art does not deserve to be chewed and then spat out in a hurry, but digested into the bones of ourselves until they become indistinguishable from who we are.",
+    "We all love something. I, for one, love many things - and this manifests in my writing as well as through my lens. This website thus serves as a repository for the beauty I hope to capture through creation.",
+    "I implore you to read and look through this website slowly, deliberately, and carefully. After all, art does not deserve to be chewed and then spat out in a hurry, but digested into the bones of ourselves until they become indistinguishable from who we are.",
   ],
   signature: "— Z.L.",
 };
@@ -274,7 +274,7 @@ export const articles: Article[] = [
     excerpt: "There is something inescapably lonely in art museums.",
     image: images.museum,
     body: [
-      "I am alone today, as I am alone everyday. I have found that there is something inexplicably lonely in art museums. Perhaps it has something to do with the frames; it always has something to do with the frames. Some disconnect between my world and yours. Your hands create that which mine cannot, your mind from which a whole other world flows, through your mortal and bloody veins to your fingertips, to your irises.", 
+      "I am alone today, as I am alone everyday. My footsteps echo against walls untouched except by portraits and statues. I have found that there is something inexplicably lonely in art museums. Perhaps it has something to do with the frames; it always has something to do with the frames. Some disconnect between my world and yours. Your hands create that which mine cannot, your mind from which a whole other world flows, through your mortal and bloody veins to your fingertips, to your irises.", 
       "I am glad to be alone today. Inferiority has always sickened me.",
     ],
   },
@@ -295,8 +295,8 @@ export const articles: Article[] = [
     excerpt: "Her lips have gone dry in the cold.",
     image: images.book,
     body: [
-      "Emmeline starts, then wrenches herself from Raven’s arms, expletives falling from her mouth almost loosely, carelessly, as she throws the sinless flower that was in her hand onto the floor, crushing it under the heel of her pristine white boots. When she lifts her leg from grinding the petals into the stone floor in frustration, it's been stained a bright and toxic orange. Raven is stunned, arms falling limp to her side helplessly, head still giddy. ",
-      "'I never knew you cursed.' The words are hoarse, and they come out only as a whisper. Even then, Raven's foolish statement echoes within the silent blue walls of the sanctuary, and she fights the nervous laugh rising in her throat. Her lips have gone dry in the cold.",
+      "She starts, then wrenches herself from his arms, expletives falling from her mouth almost loosely, carelessly, as she throws the sinless flower that was in her hand onto the floor, crushing it under the heel of her pristine white boots. When she lifts her leg from grinding the petals into the stone floor in frustration, it's been stained a bright and toxic orange. He is stunned, arms falling limp to his side helplessly, head still giddy. ",
+      "'I never knew you cursed.' The words are hoarse, and they come out only as a whisper. Even then, his foolish statement echoes within the silent blue walls of the sanctuary, and he fights the nervous laugh rising in his throat. His lips have gone dry in the cold.",
     ],
   },
 ];

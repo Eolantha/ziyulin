@@ -45,14 +45,14 @@ function PoetryPage() {
         <div className="relative">
           <PressedFlower
             variant="pink"
-            className="-left-4 top-10 z-10 hidden w-16 -rotate-12 lg:block"
+            className="left-1 -top-12 z-10 hidden w-16 rotate-6 lg:block"
           />
           <PressedFlower
             variant="yellow"
-            className="-right-3 top-40 z-10 hidden w-14 rotate-12 lg:block"
+            className="-right-2 top-[60%] z-10 hidden w-14 rotate-12 lg:block"
           />
-          <PaperHeart className="right-6 top-4 z-10 hidden h-6 w-6 rotate-12 lg:block" />
-          <SmileySticker className="left-1/2 top-2 z-10 hidden h-7 w-7 md:block" />
+          <PaperHeart className="right-6 -top-4 z-10 hidden h-6 w-6 rotate-12 lg:block" />
+          <SmileySticker className="left-1/2 -top-3 z-10 hidden h-7 w-7 md:block" />
 
           <div className="grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
             {poems.map((poem) => (

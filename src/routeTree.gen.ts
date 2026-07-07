@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProseRouteImport } from './routes/prose'
 import { Route as PoetryRouteImport } from './routes/poetry'
 import { Route as PhotographyRouteImport } from './routes/photography'
 import { Route as NotebookRouteImport } from './routes/notebook'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProseRoute = ProseRouteImport.update({
   id: '/prose',
   path: '/prose',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/photography': typeof PhotographyRoute
   '/poetry': typeof PoetryRoute
   '/prose': typeof ProseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/photography': typeof PhotographyRoute
   '/poetry': typeof PoetryRoute
   '/prose': typeof ProseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,27 @@ export interface FileRoutesById {
   '/photography': typeof PhotographyRoute
   '/poetry': typeof PoetryRoute
   '/prose': typeof ProseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/notebook' | '/photography' | '/poetry' | '/prose'
+  fullPaths:
+    | '/'
+    | '/notebook'
+    | '/photography'
+    | '/poetry'
+    | '/prose'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/notebook' | '/photography' | '/poetry' | '/prose'
-  id: '__root__' | '/' | '/notebook' | '/photography' | '/poetry' | '/prose'
+  to: '/' | '/notebook' | '/photography' | '/poetry' | '/prose' | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/notebook'
+    | '/photography'
+    | '/poetry'
+    | '/prose'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,10 +99,18 @@ export interface RootRouteChildren {
   PhotographyRoute: typeof PhotographyRoute
   PoetryRoute: typeof PoetryRoute
   ProseRoute: typeof ProseRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/prose': {
       id: '/prose'
       path: '/prose'
@@ -125,6 +155,7 @@ const rootRouteChildren: RootRouteChildren = {
   PhotographyRoute: PhotographyRoute,
   PoetryRoute: PoetryRoute,
   ProseRoute: ProseRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

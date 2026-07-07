@@ -10,9 +10,11 @@ const rows = [
   "PROSEGTRB",
 ];
 
-function Cell({ ch }: { ch: string }) {
+function Cell({ ch, linked }: { ch: string; linked?: boolean }) {
   return (
-    <span className="grid h-[clamp(1.4rem,4.4vw,1.9rem)] w-[clamp(1.4rem,4.4vw,1.9rem)] place-items-center font-serif text-[clamp(0.8rem,2.6vw,1rem)] tracking-wide text-charcoal">
+    <span
+      className={`grid h-[clamp(1.4rem,4.4vw,1.9rem)] w-[clamp(1.4rem,4.4vw,1.9rem)] place-items-center font-serif text-[clamp(0.8rem,2.6vw,1rem)] tracking-wide text-charcoal transition-transform duration-200 ${linked ? "group-hover:scale-110" : ""}`}
+    >
       {ch}
     </span>
   );
@@ -29,13 +31,17 @@ function Circled({
   rotate: number;
 }) {
   return (
-    <Link to={to} className="group relative flex" aria-label={`Read ${word}`}>
+    <Link
+      to={to}
+      className="group relative flex cursor-pointer"
+      aria-label={`Read ${word}`}
+    >
       {word.split("").map((ch, i) => (
-        <Cell key={i} ch={ch} />
+        <Cell key={i} ch={ch} linked />
       ))}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-[-3px] rounded-[50%] border-[1.5px] border-pen transition-opacity duration-500 group-hover:opacity-60"
+        className="pointer-events-none absolute inset-[-3px] rounded-[50%] border-[1.5px] border-pen transition-all duration-300 group-hover:border-2 group-hover:opacity-80"
         style={{ transform: `rotate(${rotate}deg) scaleY(1.05)` }}
       />
     </Link>

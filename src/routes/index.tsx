@@ -121,8 +121,7 @@ function Index() {
                 {featuredNote.title}
               </h3>
               <p className="mb-4 font-serif leading-relaxed text-charcoal">
-                {featuredNote.excerpt} Little observations, stray thoughts, things
-                worth keeping — collected here between issues.
+                {featuredNote.excerpt} 
               </p>
               <Link to="/notebook" className="read-link">
                 Continue Reading →

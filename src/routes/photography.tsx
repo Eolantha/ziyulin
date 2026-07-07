@@ -8,13 +8,13 @@ import { photos } from "@/data/content";
 export const Route = createFileRoute("/photography")({
   head: () => ({
     meta: [
-      { title: "Photography — Photo Essays · Ziyu Lin" },
+      { title: "Photography — Photos as Memories · Ziyu Lin" },
       {
         name: "description",
         content:
-          "Photo Essays: photographs assembled by hand, taped and clipped like a newspaper collage, from the Paper Portfolio of Ziyu Lin.",
+          "Photo as Memories: photographs assembled by hand, taped and clipped like a newspaper collage, from the Paper Portfolio of Ziyu Lin.",
       },
-      { property: "og:title", content: "Photography — Photo Essays · Ziyu Lin" },
+      { property: "og:title", content: "Photography — Photo as Memories · Ziyu Lin" },
       {
         property: "og:description",
         content: "Photographs assembled by hand, taped and clipped.",
@@ -49,7 +49,7 @@ function PhotographyPage() {
     <div className="relative min-h-screen">
       <Header />
       <main className="relative mx-auto max-w-6xl px-5 pt-6 sm:px-8">
-        <SectionHead title="Photo Essays" subtitle="Moments, captured." />
+        <SectionHead title="Photos as Memories" subtitle="Moments, captured." />
 
         {/* Desktop collage */}
         <div className="relative mt-10 hidden h-[1180px] lg:block">
@@ -115,7 +115,7 @@ function PhotographyPage() {
           ))}
         </div>
 
-        <p className="mt-6 text-center font-serif italic text-ash">
+        <p className="mt-24 text-center font-serif italic text-ash">
           Sunlight. Buildings. People. Flowers. Life.
         </p>
       </main>

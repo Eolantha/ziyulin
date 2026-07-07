@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProseRouteImport } from './routes/prose'
 import { Route as PoetryRouteImport } from './routes/poetry'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProseRoute = ProseRouteImport.update({
+  id: '/prose',
+  path: '/prose',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PoetryRoute = PoetryRouteImport.update({
   id: '/poetry',
   path: '/poetry',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/poetry': typeof PoetryRoute
+  '/prose': typeof ProseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/poetry': typeof PoetryRoute
+  '/prose': typeof ProseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/poetry': typeof PoetryRoute
+  '/prose': typeof ProseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/poetry'
+  fullPaths: '/' | '/poetry' | '/prose'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/poetry'
-  id: '__root__' | '/' | '/poetry'
+  to: '/' | '/poetry' | '/prose'
+  id: '__root__' | '/' | '/poetry' | '/prose'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PoetryRoute: typeof PoetryRoute
+  ProseRoute: typeof ProseRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/prose': {
+      id: '/prose'
+      path: '/prose'
+      fullPath: '/prose'
+      preLoaderRoute: typeof ProseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/poetry': {
       id: '/poetry'
       path: '/poetry'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PoetryRoute: PoetryRoute,
+  ProseRoute: ProseRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

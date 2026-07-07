@@ -19,7 +19,7 @@ export function Header() {
         <Link to="/" className="font-display text-sm tracking-[0.28em] text-ink">
           {masthead.name}
         </Link>
-        <span className="label-caps hidden sm:block">{masthead.tagline}</span>
+        <span className="label-caps hidden sm:block opacity-0">{masthead.tagline}</span>
         <button
           aria-label="Open sections"
           onClick={() => setOpen((v) => !v)}

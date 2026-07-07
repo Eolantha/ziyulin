@@ -52,7 +52,7 @@ function PhotographyPage() {
         <SectionHead title="Photos as Memories" subtitle="Moments, captured." />
 
         {/* Desktop collage */}
-        <div className="relative mt-10 hidden h-[1180px] lg:block">
+        <div className="relative mt-10 hidden h-[1280px] lg:block">
           <PressedFlower
             variant="sage"
             className="-left-2 top-2 z-20 w-16 -rotate-6"
@@ -115,7 +115,7 @@ function PhotographyPage() {
           ))}
         </div>
 
-        <p className="mt-24 text-center font-serif italic text-ash">
+        <p className="mt-6 text-center font-serif italic text-ash">
           Sunlight. Buildings. People. Flowers. Life.
         </p>
       </main>

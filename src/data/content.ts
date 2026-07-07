@@ -310,7 +310,7 @@ export const photos: Photo[] = [
   { src: images.building, label: "Man and Dog" },
   { src: images.ocean, label: "Bucharest" },
   { src: images.balloons, label: "Forest" },
-  { src: images.museum, label: "Kyoto" },
+  { src: images.museum, label: "Tokyo" },
   { src: images.sunset, label: "Artifact" },
 ];
 

@@ -66,9 +66,9 @@ function NotebookPage() {
                   />
                 </figure>
                 <p className="font-serif text-[0.95rem] leading-relaxed text-charcoal">
-                  {isOpen
+                  {isOpen || n.excerpt.length <= 82
                     ? n.excerpt
-                    : `${n.excerpt.slice(0, 78).trim()}…`}
+                    : `${n.excerpt.slice(0, 82).trim()}…`}
                 </p>
                 <button
                   onClick={() => setOpen(isOpen ? null : n.no)}

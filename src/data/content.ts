@@ -305,12 +305,12 @@ export const articles: Article[] = [
 export type Photo = { src: string; label: string };
 
 export const photos: Photo[] = [
-  { src: images.daisies, label: "Daisy" },
+  { src: images.daisies, label: "Daisies" },
   { src: images.clouds, label: "Cathedral" },
-  { src: images.building, label: "Man and Dog" },
+  { src: images.building, label: "Man & Dog" },
   { src: images.ocean, label: "Bucharest" },
   { src: images.balloons, label: "Forest" },
-  { src: images.museum, label: "Tokyo" },
+  { src: images.museum, label: "Tokyo Tower" },
   { src: images.sunset, label: "Artifact" },
 ];
 

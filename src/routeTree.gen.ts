@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProseRouteImport } from './routes/prose'
+import { Route as PoetryRouteImport } from './routes/poetry'
+import { Route as PhotographyRouteImport } from './routes/photography'
+import { Route as NotebookRouteImport } from './routes/notebook'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProseRoute = ProseRouteImport.update({
+  id: '/prose',
+  path: '/prose',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoetryRoute = PoetryRouteImport.update({
+  id: '/poetry',
+  path: '/poetry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotographyRoute = PhotographyRouteImport.update({
+  id: '/photography',
+  path: '/photography',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotebookRoute = NotebookRouteImport.update({
+  id: '/notebook',
+  path: '/notebook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,96 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/notebook': typeof NotebookRoute
+  '/photography': typeof PhotographyRoute
+  '/poetry': typeof PoetryRoute
+  '/prose': typeof ProseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/notebook': typeof NotebookRoute
+  '/photography': typeof PhotographyRoute
+  '/poetry': typeof PoetryRoute
+  '/prose': typeof ProseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/notebook': typeof NotebookRoute
+  '/photography': typeof PhotographyRoute
+  '/poetry': typeof PoetryRoute
+  '/prose': typeof ProseRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/notebook'
+    | '/photography'
+    | '/poetry'
+    | '/prose'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/notebook' | '/photography' | '/poetry' | '/prose' | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/notebook'
+    | '/photography'
+    | '/poetry'
+    | '/prose'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NotebookRoute: typeof NotebookRoute
+  PhotographyRoute: typeof PhotographyRoute
+  PoetryRoute: typeof PoetryRoute
+  ProseRoute: typeof ProseRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prose': {
+      id: '/prose'
+      path: '/prose'
+      fullPath: '/prose'
+      preLoaderRoute: typeof ProseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poetry': {
+      id: '/poetry'
+      path: '/poetry'
+      fullPath: '/poetry'
+      preLoaderRoute: typeof PoetryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photography': {
+      id: '/photography'
+      path: '/photography'
+      fullPath: '/photography'
+      preLoaderRoute: typeof PhotographyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notebook': {
+      id: '/notebook'
+      path: '/notebook'
+      fullPath: '/notebook'
+      preLoaderRoute: typeof NotebookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +151,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NotebookRoute: NotebookRoute,
+  PhotographyRoute: PhotographyRoute,
+  PoetryRoute: PoetryRoute,
+  ProseRoute: ProseRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
